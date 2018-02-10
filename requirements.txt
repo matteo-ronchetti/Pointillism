@@ -1,0 +1,8 @@
+numpy==1.13.3
+opencv-python==3.4.0.12
+progressbar2==3.34.3
+python-utils==2.2.0
+scikit-learn==0.19.1
+scipy==1.0.0
+six==1.11.0
+sklearn==0.0
