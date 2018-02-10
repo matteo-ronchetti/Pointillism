@@ -5,7 +5,7 @@ import progressbar
 from pointillism import *
 
 parser = argparse.ArgumentParser(description='...')
-parser.add_argument('--palette-size', default=15, type=int, help="Number of colors of the base palette")
+parser.add_argument('--palette-size', default=20, type=int, help="Number of colors of the base palette")
 parser.add_argument('--stroke-scale', default=0, help="Scale of the brush strokes (0 = automatic)")
 parser.add_argument('--gradient-smoothing-radius', default=0, help="Radius of the smooth filter applied to the gradient (0 = automatic)")
 parser.add_argument('--limit-image-size', default=0, help="Limit the image size (0 = no limits)")
@@ -38,7 +38,7 @@ print("Computing color palette...")
 palette = ColorPalette.from_image(img, args.palette_size)
 
 print("Extending color palette...")
-palette = palette.extend([(0, 40, 0), (20, 50, 0), (-20, 50, 0)])
+palette = palette.extend([(0, 50, 0), (15, 30, 0), (-15, 30, 0)])
 
 # display the color palette
 cv2.imshow("palette", palette.to_image())
