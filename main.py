@@ -23,7 +23,7 @@ if args.stroke_scale == 0:
     stroke_scale = int(math.ceil(max(img.shape) / 1000))
     print("Automatically chosen stroke scale: %d" % stroke_scale)
 else:
-    stroke_scale = args.stroke_scale
+    stroke_scale = int(args.stroke_scale)
 
 if args.gradient_smoothing_radius == 0:
     gradient_smoothing_radius = int(round(max(img.shape) / 50))
