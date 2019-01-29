@@ -6,9 +6,9 @@ from pointillism import *
 
 parser = argparse.ArgumentParser(description='...')
 parser.add_argument('--palette-size', default=20, type=int, help="Number of colors of the base palette")
-parser.add_argument('--stroke-scale', default=0, help="Scale of the brush strokes (0 = automatic)")
-parser.add_argument('--gradient-smoothing-radius', default=0, help="Radius of the smooth filter applied to the gradient (0 = automatic)")
-parser.add_argument('--limit-image-size', default=0, help="Limit the image size (0 = no limits)")
+parser.add_argument('--stroke-scale', default=0, type=int, help="Scale of the brush strokes (0 = automatic)")
+parser.add_argument('--gradient-smoothing-radius', default=0, type=int, help="Radius of the smooth filter applied to the gradient (0 = automatic)")
+parser.add_argument('--limit-image-size', default=0, type=int, help="Limit the image size (0 = no limits)")
 parser.add_argument('img_path', nargs='?', default="images/lake.jpg")
 
 args = parser.parse_args()
@@ -23,13 +23,13 @@ if args.stroke_scale == 0:
     stroke_scale = int(math.ceil(max(img.shape) / 1000))
     print("Automatically chosen stroke scale: %d" % stroke_scale)
 else:
-    stroke_scale = int(args.stroke_scale)
+    stroke_scale = args.stroke_scale
 
 if args.gradient_smoothing_radius == 0:
     gradient_smoothing_radius = int(round(max(img.shape) / 50))
     print("Automatically chosen gradient smoothing radius: %d" % gradient_smoothing_radius)
 else:
-    gradient_smoothing_radius = args.stroke_scale
+    gradient_smoothing_radius = args.gradient_smoothing_radius
 
 # convert the image to grayscale to compute the gradient
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
